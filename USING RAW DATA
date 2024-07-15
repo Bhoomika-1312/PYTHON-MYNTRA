@@ -1,0 +1,33 @@
+#USING RAW DATA
+#INSTALLING LIBRARIES
+pip install pandas
+pip install matplotlib.pyplot
+
+#code
+import pandas as pd
+
+data = {
+    'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    'Casual': [150, 160, 175, 180, 200, 210, 220, 225, 230, 240, 250, 260],
+    'Formal': [80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135],
+    'Sportswear': [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105]
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+#FOR SIMPLE LINE GRAPH
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(12, 6))
+plt.plot(df['Month'], df['Casual'], marker='*', label='Casual')
+plt.plot(df['Month'], df['Formal'], marker='o', label='Formal')
+plt.plot(df['Month'], df['Sportswear'], marker='o', label='Sportswear')
+
+plt.title('Fashion Trends Over Time')
+plt.xlabel('Month')
+plt.ylabel('Popularity')
+plt.legend()
+plt.grid()
+plt.show()
+
